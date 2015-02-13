@@ -30,9 +30,25 @@
         "fallback": "en-US"
     },
     
-    
+    "databaseConfig": {
+        "host": "localhost",
+        "database": "kraken-oauth"
+    },
 
     "middleware": {
+
+        "appsec": {
+            "module": {
+                "arguments": [
+                    {
+                        "csrf": false,
+                        "xframe": "SAMEORIGIN",
+                        "p3p": false,
+                        "csp": false
+                    }
+                ]
+            }
+        },
 
         "static": {
             "module": {
