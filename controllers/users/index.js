@@ -1,10 +1,11 @@
 'use strict';
 
-var User = require('../../models/user');
+var User = require('../../models/user'),
+    passport = require('passport');
 
 module.exports = function (router) {
 
-  router.get('/', function (req, res) {
+  router.get('/', passport.authenticate('accessToken', { session: false }), function (req, res) {
 
     User.find(function (err, users) {
       if (err) {
