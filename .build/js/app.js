@@ -2,11 +2,14 @@
 
 
 requirejs.config({
-    paths: {}
+    paths: {
+      'react': '../components/react/react',
+      'JSXTransformer': '../components/react/JSXTransformer'
+    }
 });
 
 
-require([/* Dependencies */], function () {
+require(['react', 'JSXTransformer'], function (React) {
 
     var app = {
         initialize: function () {
@@ -15,5 +18,7 @@ require([/* Dependencies */], function () {
     };
 
     app.initialize();
+
+    console.log(React);
 
 });
