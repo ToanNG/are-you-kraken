@@ -1,24 +1,21 @@
 'use strict';
 
-var User = require('../../models/user'),
+var User = rootRequire('models/user'),
     passport = require('passport');
 
 module.exports = function (router) {
 
   router.get('/', passport.authenticate('accessToken', { session: false }), function (req, res) {
-
     User.find(function (err, users) {
       if (err) {
-        console.log(err);
+        res.send(err);
+      } else {
+        res.status(200).json({
+          users: users
+        });
       }
-      var model = {
-        users: users
-      };
-      res.status(200).json(model);
     });
-
   });
-
 
   router.post('/', function (req, res) {
     var b = req.body;
@@ -31,12 +28,12 @@ module.exports = function (router) {
       email: b.email
     });
 
-    newUser.save(function(err) {
+    newUser.save(function (err) {
       if (err) {
-        console.log('save error', err);
+        res.send(err);
+      } else {
+        res.sendStatus(200);
       }
-
-      res.res.sendStatus(200);
     });
   });
 

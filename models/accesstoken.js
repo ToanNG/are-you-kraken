@@ -8,8 +8,7 @@ var accessTokenModel = function () {
         token: { type: String, required: true, unique: true },
         clientId: String,
         userId: { type: String, required: true },
-        expirationDate: Date,
-        scope: String
+        expirationDate: Date
     });
 
     return mongoose.model('AccessToken', accessTokenSchema);

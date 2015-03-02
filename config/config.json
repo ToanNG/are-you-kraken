@@ -23,7 +23,6 @@
             }
         }
     },
-    
 
     "i18n": {
         "contentPath": "path:./locales",
@@ -41,7 +40,6 @@
             "module": {
                 "arguments": [
                     {
-                        "csrf": false,
                         "xframe": "SAMEORIGIN",
                         "p3p": false,
                         "csp": false
@@ -50,40 +48,47 @@
             }
         },
 
+        "csrf": {
+            "enabled": false,
+            "priority": 111,
+            "route": "/((?!api))*",
+            "module": {
+                "name": "lusca",
+                "method": "csrf",
+                "arguments": [ {} ]
+            }
+        },
+
         "static": {
             "module": {
                 "arguments": [ "path:./.build" ]
             }
-        }
+        },
 
-        ,"router": {
+        "router": {
             "module": {
                 "arguments": [{ "directory": "path:./controllers" }]
             }
-        }
+        },
 
-        
-        ,"expressView": {
+        "expressView": {
             "priority": 100,
             "enabled": true,
             "module": {
                 "name": "engine-munger/lib/expressView"
             }
-        }
-        
+        },
 
-        
-
-        ,"fileNotFound": {
+        "fileNotFound": {
             "enabled": true,
             "priority": 130,
             "module": {
                 "name": "kraken-js/middleware/404",
                 "arguments": [ "errors/404" ]
             }
-        }
+        },
 
-        ,"serverError": {
+        "serverError": {
             "enabled": true,
             "priority": 140,
             "module": {
@@ -92,6 +97,6 @@
             }
         }
 
-        
     }
+
 }

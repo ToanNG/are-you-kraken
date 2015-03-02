@@ -1,9 +1,12 @@
 'use strict';
 
+global.rootRequire = function (name) {
+    return require(__dirname + '/' + name);
+}
+
 var app = module.exports = require('express')();
 var kraken = require('kraken-js');
 var options = require('./lib/spec')(app);
-
 
 app.use(kraken(options));
 app.on('start', function () {
