@@ -49,9 +49,9 @@
         },
 
         "csrf": {
-            "enabled": false,
+            "enabled": true,
             "priority": 111,
-            "route": "/((?!api))*",
+            "route": "/((?!(api|oauth)))*",
             "module": {
                 "name": "lusca",
                 "method": "csrf",

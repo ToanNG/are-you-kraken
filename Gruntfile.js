@@ -9,6 +9,7 @@ module.exports = function (grunt) {
     });
 
     // Register group tasks
+    grunt.registerTask('precompileJSX', [ 'react' ]);
     grunt.registerTask('build', [ 'jshint', 'stylus', 'requirejs', 'i18n', 'copyto' ]);
     grunt.registerTask('test', [ 'jshint', 'mochacli' ]);
 
