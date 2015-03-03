@@ -6,15 +6,22 @@ define(['react'], function (React) {
   'use strict';
 
   var SearchBar = React.createClass({
+    handleChange: function () {
+      this.props.onUserInput(
+        this.refs.filterTextInput.getDOMNode().value
+      );
+    },
+
     render: function () {
       return (
         <form>
-          <input type="text" placeholder="Search..." />
-          <p>
-            <input type="checkbox" />
-            {' '}
-            Only show products in stock
-          </p>
+          <input
+            type="text"
+            placeholder="Search..."
+            value={this.props.filterText}
+            ref="filterTextInput"
+            onChange={this.handleChange}
+          />
         </form>
       );
     }

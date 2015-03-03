@@ -8,7 +8,7 @@ define(['react'], function (React) {
   var ListView = React.createClass({
     render: function () {
       return (
-        <h3>{this.props.entry.name}</h3>
+        <div class="entry">{this.props.entry.title}</div>
       );
     }
   });

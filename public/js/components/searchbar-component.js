@@ -6,14 +6,21 @@ define(['react'], function (React) {
   'use strict';
 
   var SearchBar = React.createClass({displayName: "SearchBar",
+    handleChange: function () {
+      this.props.onUserInput(
+        this.refs.filterTextInput.getDOMNode().value
+      );
+    },
+
     render: function () {
       return (
         React.createElement("form", null, 
-          React.createElement("input", {type: "text", placeholder: "Search..."}), 
-          React.createElement("p", null, 
-            React.createElement("input", {type: "checkbox"}), 
-            ' ', 
-            "Only show products in stock"
+          React.createElement("input", {
+            type: "text", 
+            placeholder: "Search...", 
+            value: this.props.filterText, 
+            ref: "filterTextInput", 
+            onChange: this.handleChange}
           )
         )
       );

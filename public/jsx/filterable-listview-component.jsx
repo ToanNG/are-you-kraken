@@ -10,11 +10,29 @@ define([
     'use strict';
 
     var FilterableListView = React.createClass({
+      getInitialState: function () {
+        return {
+          filterText: ''
+        };
+      },
+
+      handleUserInput: function (filterText) {
+        this.setState({
+          filterText: filterText
+        });
+      },
+
       render: function () {
         return (
           <div>
-            <SearchBar />
-            <ListView entries={this.props.entries}/>
+            <SearchBar
+              filterText={this.state.filterText}
+              onUserInput={this.handleUserInput}
+            />
+            <ListView
+              entries={this.props.entries}
+              filterText={this.state.filterText}
+            />
           </div>
         );
       }

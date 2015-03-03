@@ -15,15 +15,15 @@ require(['react', 'JSXTransformer'], function (React) {
         initialize: function () {
             require(['components/filterable-listview-component'], function (FilterableListViewComponent) {
                 var mountNode = document.getElementById('wrapper');
-                var entries = [
+                var ENTRIES = [
                     {
-                        name: 'Toan'
+                        title: 'VOD1'
                     },
                     {
-                        name: 'Khanh'
+                        title: 'VOD2'
                     }
                 ];
-                React.render(React.createElement(FilterableListViewComponent, {entries: entries}), mountNode);
+                React.render(React.createElement(FilterableListViewComponent, {entries: ENTRIES}), mountNode);
             });
         }
     };
