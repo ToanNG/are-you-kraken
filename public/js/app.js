@@ -13,9 +13,17 @@ require(['react', 'JSXTransformer'], function (React) {
 
     var app = {
         initialize: function () {
-            require(['components/listview-component'], function (ListViewComponent) {
+            require(['components/filterable-listview-component'], function (FilterableListViewComponent) {
                 var mountNode = document.getElementById('wrapper');
-                React.render(React.createElement(ListViewComponent, {entries: []}), mountNode);
+                var entries = [
+                    {
+                        name: 'Toan'
+                    },
+                    {
+                        name: 'Khanh'
+                    }
+                ];
+                React.render(React.createElement(FilterableListViewComponent, {entries: entries}), mountNode);
             });
         }
     };

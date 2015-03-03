@@ -8,9 +8,7 @@ define(['react'], function (React) {
   var ListView = React.createClass({displayName: "ListView",
     render: function () {
       return (
-        React.createElement("div", {className: "commentBox"}, 
-          "Hello, world! I am a CommentBox."
-        )
+        React.createElement("h3", null, this.props.entry.name)
       );
     }
   });
