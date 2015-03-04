@@ -11,14 +11,14 @@ define([
     var ListView = React.createClass({displayName: "ListView",
       render: function () {
         var entries = this.props.entries.map(function (entry) {
-          if (!~entry.title.toLowerCase().indexOf(this.props.filterText)) {
+          if (!~entry.title.toLowerCase().indexOf(this.props.filterText.toLowerCase())) {
             return null;
           }
           return React.createElement(Entry, {entry: entry})
         }.bind(this));
 
         return (
-          React.createElement("div", {class: "entries-container"}, entries)
+          React.createElement("div", {className: "entries-container"}, entries)
         );
       }
     });

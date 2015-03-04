@@ -5,13 +5,13 @@
 define(['react'], function (React) {
   'use strict';
 
-  var ListView = React.createClass({
+  var Entry = React.createClass({
     render: function () {
       return (
-        <div class="entry">{this.props.entry.title}</div>
+        <div className="entry">{this.props.entry.title}</div>
       );
     }
   });
 
-  return ListView;
+  return Entry;
 });
